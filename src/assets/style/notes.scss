@@ -1,16 +1,40 @@
 .notesList{    
-    background-color: rgb(233, 232, 232);
     list-style-type: none;  
     width: 40%;  
     height: 100%;
+    border-right: 1px solid rgb(224, 224, 224);
     &_items{
     list-style-type: none;
-        ul{
-            display: flex;
-            gap: 1em;
-            list-style-type: none;
-            padding: 15px 0;
-        }
+        &_item{
+            padding: 10px;
+            border-bottom: 1px solid rgb(224, 224, 224);
+            cursor: pointer;
+            transition: all 0.5s;
+            &:hover{
+                background-color: white;
+            }
+            h2{
+                padding: 10px 0;
+            }
+            &_tags{
+                display: flex;
+                gap: 1em;
+                list-style-type: none;
+                padding: 15px 0;
+                align-items: center;
+                li{
+                    font-weight: 600;
+                    padding: 5px 10px;
+                    transition: all 0.3s;
+                    &:hover{
+                        transform: scale(1.1);
+                    }
+                    
+                }
+            }
+        }      
     }
-    
+}
+.notesText{
+    width: 60%;
 }

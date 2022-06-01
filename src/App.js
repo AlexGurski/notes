@@ -1,45 +1,49 @@
 import { useEffect, useState } from "react";
 import './assets/style/notes.css'
-import {Header} from "./Header"
-function App() {
-  const [notes,setNotes] = useState('')
+import {NotesListItems} from './layouts/NotesListItems'
+import {FaSlackHash} from 'react-icons/fa'
 
+function App() {
+  const [notes,setNotes] = useState(false)
+  const [fullNotes, setFullNotes] = useState(false)
   useEffect(()=>{
     fetch('http://localhost:3001/notes')
     .then((response) => {
       return response.json();
     })
     .then((data) => {
-      console.log(data)
-      setNotes(data);
+      setNotes(data.reverse());
     });
   },[])
- 
+
+ const onClickOnNotes = (notesFull)=>{
+  setFullNotes(notesFull)
+ }
+
   return (
-    <>
-    
+    <>    
     <div className="App">
       <div className="notesList">
-        <ul className="notesList_items">
-          <Header/>
-          {Object.values(notes).map(e=>
-          <li>
-              <h2>{e.title}</h2>    
-              <p>{e.text}</p>
-              <ul>
-              {
-                Object.values(e.tags).map(el=><li>{el}</li>)
-              }
-              </ul>
-            </li>
-          )}
-        </ul>
+        <NotesListItems notes={notes} onClickOnText={notesTo=>setFullNotes(notesTo)}/>
       </div>
       <div className="notesText">
-        gd
+        <div className="notesText_container">
+        {
+        fullNotes?
+        <div className="notesList_items_item">
+          <h2>{fullNotes.title}</h2>    
+          <p >{fullNotes.text}</p>
+          <ul className="notesList_items_item_tags">
+            <FaSlackHash style={{fontSize:'25px'}}/>
+            {
+              Object.values(fullNotes.tags).map(el=><li>{el}</li>)
+            }
+          </ul>
       </div>
-    
-      
+        :null
+            }
+        </div>
+      </div>
     </div>
     </>
   );

@@ -1,8 +1,7 @@
 import { useEffect, useState } from "react";
-import './assets/style/header.css'
+import '../assets/style/header.css'
 import {MdOutlineCreate} from "react-icons/md";
-export const Header = () =>{
-   
+export const Header = () =>{   
   return (
     <header>
       <div className="header_content">
