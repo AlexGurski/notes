@@ -2,21 +2,34 @@ import { useEffect, useState } from "react";
 
 
 function App() {
-  const [date,setDate] = useState('')
+  const [notes,setNotes] = useState('')
+
   useEffect(()=>{
-    fetch('http://localhost:3001/users')
+    fetch('http://localhost:3001/notes')
     .then((response) => {
       return response.json();
     })
     .then((data) => {
-      setDate(data);
+      console.log(data)
+      setNotes(data);
     });
   },[])
  
-
   return (
     <div className="App">
-      {Object.keys(date).map(e=><p>{date[e].name}</p>)}
+      <ul>
+        {Object.values(notes).map(e=>
+        <li>
+            <h2>{e.title}</h2>    
+            <p>{e.text}</p>
+            <ul>
+            {
+              Object.values(e.tags).map(el=><li>{el}</li>)
+            }
+            </ul>
+          </li>
+        )}
+      </ul>
     </div>
   );
 }
