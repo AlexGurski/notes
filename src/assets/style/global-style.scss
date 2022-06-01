@@ -1,0 +1,25 @@
+@font-face {
+    font-family: 'Inter';
+    src: url('../fonts/Inter.ttf');
+}
+
+*{
+	padding: 0; 
+	margin: 0; 
+	box-sizing: border-box;
+    font-family: 'Inter';
+}
+body{
+    background-color: rgb(243, 241, 241);
+}
+#root{
+    display: flex;
+    justify-content: center;
+}
+.App{
+    width: 1440px;
+    max-width: 100%;
+    border: 1px solid red;
+    display: flex;
+    height: 100vh;
+}

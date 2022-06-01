@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
-
-
+import './assets/style/notes.css'
+import {Header} from "./Header"
 function App() {
   const [notes,setNotes] = useState('')
 
@@ -16,21 +16,32 @@ function App() {
   },[])
  
   return (
+    <>
+    
     <div className="App">
-      <ul>
-        {Object.values(notes).map(e=>
-        <li>
-            <h2>{e.title}</h2>    
-            <p>{e.text}</p>
-            <ul>
-            {
-              Object.values(e.tags).map(el=><li>{el}</li>)
-            }
-            </ul>
-          </li>
-        )}
-      </ul>
+      <div className="notesList">
+        <ul className="notesList_items">
+          <Header/>
+          {Object.values(notes).map(e=>
+          <li>
+              <h2>{e.title}</h2>    
+              <p>{e.text}</p>
+              <ul>
+              {
+                Object.values(e.tags).map(el=><li>{el}</li>)
+              }
+              </ul>
+            </li>
+          )}
+        </ul>
+      </div>
+      <div className="notesText">
+        gd
+      </div>
+    
+      
     </div>
+    </>
   );
 }
 

@@ -1,0 +1,16 @@
+.notesList{    
+    background-color: rgb(233, 232, 232);
+    list-style-type: none;  
+    width: 40%;  
+    height: 100%;
+    &_items{
+    list-style-type: none;
+        ul{
+            display: flex;
+            gap: 1em;
+            list-style-type: none;
+            padding: 15px 0;
+        }
+    }
+    
+}
