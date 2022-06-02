@@ -1,12 +1,11 @@
-import { useEffect, useState } from "react";
 import '../assets/style/header.css'
-import {MdOutlineCreate} from "react-icons/md";
+import {FiEdit} from "react-icons/fi";
 export const Header = () =>{   
   return (
     <header>
       <div className="header_content">
         <input type="text" placeholder="Поиск по #тегу"/>
-        <span><MdOutlineCreate/></span>
+        <span><FiEdit/></span>
       </div>
     </header>
   );
