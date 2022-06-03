@@ -63,24 +63,26 @@
     > h2{
         padding: 1em 0;
     }
+    &_tags{
+        display: flex;
+        flex-wrap: wrap;
+        gap: 1em;
+        padding: 15px 0;
+        align-items: center;
+        > li{
+            font-weight: 600;
+            padding: 5px 10px;
+            transition: all 0.3s;
+            cursor: pointer;
+            &:hover{
+                transform: scale(1.1);
+            }
+            
+        }
+    }
   
 }
-.tags{
-    display: flex;
-    gap: 1em;
-    padding: 15px 0;
-    align-items: center;
-    > li{
-        font-weight: 600;
-        padding: 5px 10px;
-        transition: all 0.3s;
-        cursor: pointer;
-        &:hover{
-            transform: scale(1.1);
-        }
-        
-    }
-}
+
 }
 .disanimate{
     display: none;
