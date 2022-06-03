@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import './assets/style/notes.css'
-import {NotesListItems} from './layouts/NotesListItems'
-import {NotesTextItem} from './layouts/NotesTextItem'
+import {NotesListItems} from './components/NotesListItems'
+import {NotesTextItem} from './components/NotesTextItem'
 import axios from "axios";
 
 function App() {

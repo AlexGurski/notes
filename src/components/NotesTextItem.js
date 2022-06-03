@@ -4,15 +4,17 @@ import {AiOutlineEdit, AiOutlineCheckSquare, AiOutlineCloseSquare} from 'react-i
 import {BiMessageSquareAdd} from 'react-icons/bi'
 
 export const NotesTextItem = ({fullNotes, updates})=>{
-  const divText = useRef("text")
-  const divTitle = useRef("text")
-  const divInput = useRef("text")
+  const divText = useRef("")
+  const divTitle = useRef("")
+  const divInput = useRef("")
   const [text,setText] = useState(false);
   const [tags, setTags] = useState(null);
   const [editHeader, setEditHeader] = useState(false)
+
   const onSearch = (text, tags) =>{
     return text.split(" ").map((e) => e.includes(tags)?<span style={{fontWeight:900}}>{e} </span>:e+" ")
   }
+  
   useEffect(()=>{
       setText(fullNotes)
       setTags(null)
@@ -25,7 +27,7 @@ return (
     text?
     <div className="notes_text">
       <span className='notes_text_header'>
-        <h2  contentEditable={editHeader} ref={divTitle}>{text.title}</h2>  
+        <h2  contentEditable={editHeader} suppressContentEditableWarning={true} ref={divTitle}>{text.title}</h2>  
         <AiOutlineEdit onClick={()=>setEditHeader(true)} style={{display:!editHeader?'block':'none'}}/>  
         <AiOutlineCheckSquare style={{display:editHeader?'block':'none'}} onClick={()=>{setEditHeader(false); 
                                                                                         setText({...text, title:divTitle.current.textContent});
@@ -33,7 +35,7 @@ return (
         <AiOutlineCloseSquare style={{display:editHeader?'block':'none'}} onClick={()=>{setEditHeader(false); divTitle.current.textContent=text.title}}/>  
       </span>
       <div  className='notes_text_div' 
-          contentEditable="false" ref={divText} 
+          contentEditable="false"suppressContentEditableWarning={true} ref={divText} 
           onKeyDown={()=>{
             divText.current.textContent=divText.current.textContent
           }}>
