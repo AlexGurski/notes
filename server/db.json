@@ -2,25 +2,29 @@
   "notes": [
     {
       "id": 1,
-      "time":"",
-      "title":"Welsh national",
-      "text": "Welsh national identity emerged among the Celtic Britons after the Roman withdrawal from Britain in the 5th century, and Wales is regarded as one of the modern Celtic nations. Llywelyn ap Gruffudd's death in 1282 marked the completion of Edward I of England's conquest of Wales, though Owain Glyndŵr briefly restored independence to Wales in the early 15th century. ",
-      "tags": ["wales", "alex", "Celtic"]
+      "time": "",
+      "title": "Как стать программистом",
+      "text": "Программист — это специалист по разработке компьютерных программ. Под разработкой понимается продумывание архитектуры программы, её реализация, оптимизация и тестирование. Далее мы разберёмся, как стать настоящим айтишником и что для этого нужно знать.\n1.1 Чем занимается программист\nЭто зависит от специфики выбранной отрасли, но в целом всё сводится к написанию и тестированию кода. Важно понимать свои обязанности и не скатываться в звание тыжпрограммиста, которому поручают всё — от установки Windows до починки техники.",
+      "tags": [
+        "Программист",
+        "специалист",
+        "программы",
+        "sfsdff",
+        "172"
+      ]
     },
     {
-        "id": 2,
-        "time":"",
-        "title":"Acts of Union 1707",
-        "text": "The Acts of Union 1707 declared that the Kingdom of England and Kingdom of Scotland were United into One Kingdom by the Name of Great Britain. n the 18th century, cabinet government developed under Robert Walpole, in practice the first prime minister (1721–1742). A series of Jacobite Uprisings sought to remove the Protestant House of Hanover from the British throne and restore the Catholic House of Stuart. The Jacobites were finally defeated at the Battle of Culloden in 1746, after which the Scottish Highlanders were brutally suppressed.",
-        "tags": ["britain", "sam"]
-      },
-      {
-        "id":3,
-        "time":"",
-        "title":"Как стать программистом",
-        "text":"Программист — это специалист по разработке компьютерных программ. Под разработкой понимается продумывание архитектуры программы, её реализация, оптимизация и тестирование. Далее мы разберёмся, как стать настоящим айтишником и что для этого нужно знать.\n1.1 Чем занимается программист\nЭто зависит от специфики выбранной отрасли, но в целом всё сводится к написанию и тестированию кода. Важно понимать свои обязанности и не скатываться в звание тыжпрограммиста, которому поручают всё — от установки Windows до починки техники.",
-        "tags": ["Программист", "специалист","программы"]
-      }
-    
+      "id": 2,
+      "time": "",
+      "title": "Acts of Union",
+      "text": "The Acts of Union 1707 declared that the Kingdom of England and Kingdom of Scotland were United into One Kingdom by the Name of Great Britain. n the 18th century, cabinet government developed under Robert Walpole, in practice the first prime minister (1721–1742). A series of Jacobite Uprisings sought to remove the Protestant House of Hanover from the British throne and restore the Catholic House of Stuart. The Jacobites were finally defeated at the Battle of Culloden in 1746, after which the Scottish Highlanders were brutally suppressed.",
+      "tags": [
+        "britain",
+        "sam",
+        "first",
+        "1721",
+        "172"
+      ]
+    }
   ]
 }

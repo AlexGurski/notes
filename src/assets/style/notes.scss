@@ -52,6 +52,10 @@
             }
         }
     }
+    &_addHashTag{
+        display: flex;
+        align-items: center;
+    }
     h2{
         padding: 1em 0;
     }
@@ -74,3 +78,14 @@
     }
 }
 }
+.disanimate{
+    display: none;
+}
+.animate{
+    display: block;    
+    animation: ani 1s forwards;
+}
+@keyframes ani {
+    0% {left: 40px; width: 0;}
+    100% {left: 0; width: 80px;}
+  }
