@@ -1,21 +1,20 @@
 import {Header} from "./notesList/Header"
-import {FaSlackHash} from 'react-icons/fa'
 import { AddNewPost } from "./notesList/AddPost"
+import { BodyOfListNotes } from "./notesList/BodyList"
 
-export const NotesListItems = ({notes, onClickOnText})=>
-<div className="notes_list">
+export const NotesListItems = ({notes, onClickOnText, create})=>{
+
+  const filterTags = (tag)=>{
+    return notes.filter(e=>e.tags.includes(tag))
+  }
+
+  return (  
+  <div className="notes_list">
   <ul className="notes_list_items">
-      <Header/>   
-      <AddNewPost/>
-          {Object.values(notes).map(e=>
-            <li className="notes_list_items_item"  onClick={()=>onClickOnText(e)}>
-                <h2>{e.title}</h2>    
-                <p>{e.text}</p>                
-                <ul >  
-                <FaSlackHash style={{fontSize:'25px'}}/>                
-                    {Object.values(e.tags).map(el=><li>{el}</li>)}
-                </ul>
-              </li>
-          )}
+      <Header filterTags={e=>filterTags(e)}/>   
+      <AddNewPost create={create}/>
+      <BodyOfListNotes notes={notes} onClickOnText={e=>{onClickOnText(e)}}/>
   </ul>
-</div>
+</div>)
+
+}

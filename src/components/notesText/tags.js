@@ -1,6 +1,7 @@
 import { useRef } from 'react'
 import {FaSlackHash} from 'react-icons/fa'
 import {BiMessageSquareAdd} from 'react-icons/bi'
+import {FcCancel} from 'react-icons/fc'
 
 export const Tags = ({text, addText, addTags}) =>{
     const divInput = useRef("")
@@ -10,7 +11,7 @@ export const Tags = ({text, addText, addTags}) =>{
       
          <span className='notes_text_addHashTag'>
          <BiMessageSquareAdd  style={{fontSize:'25px'}} onClick={()=>divInput.current.classList.add("animate")}/> 
-         <BiMessageSquareAdd  style={{fontSize:'25px'}} onClick={()=>divInput.current.classList.remove("animate")}/> 
+         <FcCancel  style={{fontSize:'25px'}} onClick={()=>divInput.current.classList.remove("animate")}/> 
          <input type="text" className='disanimate' ref={divInput} onKeyPress={e=>
           {
             if ((e.key == 'Enter' || e.key == ' ') && e.target.value!==''){            

@@ -6,7 +6,6 @@ export const Header = ({text,addText}) =>{
   const [editHeader, setEditHeader] = useState(false)
 
     return (
-
     <span className='notes_text_header'>
       <h2  contentEditable={editHeader} suppressContentEditableWarning={true} ref={divTitle}>{text.title}</h2>  
       <AiOutlineEdit onClick={()=>setEditHeader(true)} style={{display:!editHeader?'block':'none'}}/>  

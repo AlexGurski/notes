@@ -9,6 +9,28 @@ function App() {
   const [fullNotes, setFullNotes] = useState(false)
   const [updateServer, setUpdateServer]=useState(true)
   
+  const creates = (data) =>{
+    axios.post('http://localhost:3001/notes/', data)
+    .then(function (response) {
+      setUpdateServer(!updateServer)
+      console.log(response);
+    })
+    .catch(function (error) {
+      console.log(error);
+    });
+  }
+
+  const removes = (path) =>{
+    axios.delete('http://localhost:3001/notes/'+path, {})
+    .then( (response) => {
+      setUpdateServer(!updateServer)
+      setFullNotes(false)
+    })
+    .catch(function (error) {
+      console.log(error);
+    });
+  }
+
 const update = (data, path) =>{
   console.log(data)
         axios.put('http://localhost:3001/notes/'+path, data )
@@ -33,8 +55,8 @@ const update = (data, path) =>{
   return (
     <>    
     <div className="notes">
-        <NotesListItems notes={notes} onClickOnText={notesTo=>setFullNotes(notesTo)} />
-        <NotesTextItem fullNotes={fullNotes} updates={(data, path)=>update(data,path)}/>
+        <NotesListItems notes={notes} onClickOnText={notesTo=>setFullNotes(notesTo)} create={(data)=>creates(data,"")}/>
+        <NotesTextItem fullNotes={fullNotes} updates={(data, path)=>update(data,path)} removePost={e=>removes(e)}/>
     </div>
     </>
   );

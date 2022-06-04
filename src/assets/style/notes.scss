@@ -5,15 +5,29 @@
     height: 100vh;
     &_list{    
     width: 40%;  
-    height: 100%;
+    height: 100vh;
     border-right: 1px solid rgb(224, 224, 224);
+    transition: all 0.5s;
+    overflow-y: auto;
         &_add{
-            display: flex;
+            
             flex-direction: column;
-            border:ipx solid red;
+            textarea{
+                width: 100%;
+                resize: none;
+                height: 200px;
+            }
+            span{
+                width: 100%;
+                display: flex;
+                 > *{
+                     margin-top: 1em;
+                    width: 50%;
+                }
+            }
         }
         &_items{
-        list-style-type: none;
+        list-style-type: none;        
             &_item{
                 padding: 10px;
                 border-bottom: 1px solid rgb(224, 224, 224);
@@ -135,7 +149,7 @@
 }
 @keyframes ani {
     0% {left: 40px; width: 0;}
-    100% {left: 0; width: 80px;}
+    100% {left: 0; width: 100%;}
   }
   textarea{
       width: 100%;
