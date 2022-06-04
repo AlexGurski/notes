@@ -7,9 +7,7 @@ export const Tags = ({text, addText, addTags}) =>{
     return (
         <ul className="notes_text_tags">
         <FaSlackHash style={{fontSize:'25px'}}/>
-        {
-          text? Object.values(text.tags).map(el=><li onClick={()=>addTags(el)}>{el}</li>):null
-        }
+      
          <span className='notes_text_addHashTag'>
          <BiMessageSquareAdd  style={{fontSize:'25px'}} onClick={()=>divInput.current.classList.add("animate")}/> 
          <BiMessageSquareAdd  style={{fontSize:'25px'}} onClick={()=>divInput.current.classList.remove("animate")}/> 
@@ -23,6 +21,10 @@ export const Tags = ({text, addText, addTags}) =>{
           }
         }/>
         </span>  
+       {
+          text? Object.values(text.tags).reverse().map(el=><li onClick={()=>addTags(el)}>{el}</li>):null
+        }
+        
       </ul>
     ) 
 }

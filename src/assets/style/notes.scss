@@ -7,6 +7,11 @@
     width: 40%;  
     height: 100%;
     border-right: 1px solid rgb(224, 224, 224);
+        &_add{
+            display: flex;
+            flex-direction: column;
+            border:ipx solid red;
+        }
         &_items{
         list-style-type: none;
             &_item{
@@ -37,7 +42,7 @@
                 } 
             } 
         }
-header{
+        header{
             width: 100%;
             height: 70px;
             border-bottom: 1px solid rgb(224, 224, 224);
@@ -70,59 +75,56 @@ header{
                 }
             }
         }
-}
+    }
     &_text{
     padding-top: 30px;
     width: 100%;
-    &_header{
-        display: flex;
-        align-items: center;
-        transition: all 1s;
-        padding-bottom: 1em ;
-        > svg{
-            font-size: 25px;
-            cursor: pointer;
-            color:grey;
-            transition: all 0.3s;
-            &:hover{
-                color: black;
+        &_header{
+            display: flex;
+            align-items: center;
+            transition: all 1s;
+            padding-bottom: 1em ;
+            > svg{
+                font-size: 25px;
+                cursor: pointer;
+                color:grey;
+                transition: all 0.3s;
+                &:hover{
+                    color: black;
+                }
+            }
+        }
+        &_div{
+            font-size: 18px;
+        }
+        &_area{
+            resize: none;
+            overflow: hidden;
+            border: none;
+            background-color: rgb(243, 241, 241);
+        }
+        &_addHashTag{
+            display: flex;
+            align-items: center;
+        }
+        &_tags{
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1em;
+            padding: 15px 0;
+            align-items: center;
+            > li{
+                font-weight: 600;
+                padding: 5px 10px;
+                transition: all 0.3s;
+                cursor: pointer;
+                &:hover{
+                    transform: scale(1.1);
+                }
+                
             }
         }
     }
-    &_div{
-        font-size: 18px;
-    }
-    &_area{
-        resize: none;
-        overflow: hidden;
-        border: none;
-        background-color: rgb(243, 241, 241);
-    }
-    &_addHashTag{
-        display: flex;
-        align-items: center;
-    }
-
-    &_tags{
-        display: flex;
-        flex-wrap: wrap;
-        gap: 1em;
-        padding: 15px 0;
-        align-items: center;
-        > li{
-            font-weight: 600;
-            padding: 5px 10px;
-            transition: all 0.3s;
-            cursor: pointer;
-            &:hover{
-                transform: scale(1.1);
-            }
-            
-        }
-    }
-  
-}
-
 }
 .disanimate{
     display: none;

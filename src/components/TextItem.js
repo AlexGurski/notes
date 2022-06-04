@@ -4,7 +4,6 @@ import { Header } from './notesText/Header'
 import { TextNotes } from './notesText/Text'
 
 export const NotesTextItem = ({fullNotes, updates})=>{
-
   const [text,setText] = useState(false);
   const [tags, setTags] = useState(null); 
 
