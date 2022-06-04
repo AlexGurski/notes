@@ -1,13 +1,14 @@
 import { useEffect, useState } from "react";
 import './assets/style/notes.css'
-import {NotesListItems} from './components/NotesListItems'
-import {NotesTextItem} from './components/NotesTextItem'
+import {NotesListItems} from './components/ListItems'
+import {NotesTextItem} from './components/TextItem'
 import axios from "axios";
 
 function App() {
   const [notes,setNotes] = useState(false)
   const [fullNotes, setFullNotes] = useState(false)
   const [updateServer, setUpdateServer]=useState(true)
+  
 const update = (data, path) =>{
   console.log(data)
         axios.put('http://localhost:3001/notes/'+path, data )

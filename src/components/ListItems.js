@@ -1,4 +1,4 @@
-import {Header} from "./Header"
+import {Header} from "./notesList/Header"
 import {FaSlackHash} from 'react-icons/fa'
 
 export const NotesListItems = ({notes, onClickOnText})=>

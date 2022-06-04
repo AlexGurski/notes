@@ -1,4 +1,4 @@
-import '../assets/style/header.css'
+
 import {FiEdit} from "react-icons/fi";
 export const Header = () =>{   
   return (

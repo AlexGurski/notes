@@ -21,7 +21,7 @@ export const Tags = ({text, addText, addTags}) =>{
               e.target.value=''             
             }
           }
-        }></input>
+        }/>
         </span>  
       </ul>
     ) 
