@@ -41,9 +41,12 @@ const update = (data, path) =>{
           console.log(error);
       });
 }
+const get = () =>{
+ return fetch('http://localhost:3001/notes')
+}
 
   useEffect(()=>{
-    fetch('http://localhost:3001/notes')
+    get()
     .then((response) => {
       return response.json();
     })
@@ -52,10 +55,21 @@ const update = (data, path) =>{
     });
   },[updateServer])
 
+  const filterTags = (tag)=>  {
+    get()
+    .then((response) => {
+      return response.json();
+    })
+    .then((data)=>{      
+     setNotes(data.filter(e=>e.tags.join('').indexOf(tag)!==-1?true:false)) 
+    })
+   
+  }
+
   return (
     <>    
     <div className="notes">
-        <NotesListItems notes={notes} onClickOnText={notesTo=>setFullNotes(notesTo)} create={(data)=>creates(data,"")}/>
+        <NotesListItems notes={notes} onClickOnText={notesTo=>setFullNotes(notesTo)} create={(data)=>creates(data)} filterTags={e=>filterTags(e)}/>
         <NotesTextItem fullNotes={fullNotes} updates={(data, path)=>update(data,path)} removePost={e=>removes(e)}/>
     </div>
     </>
