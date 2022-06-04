@@ -32,7 +32,6 @@ function App() {
   }
 
 const update = (data, path) =>{
-  console.log(data)
         axios.put('http://localhost:3001/notes/'+path, data )
         .then(resp => {
           setUpdateServer(!updateServer)
@@ -41,6 +40,7 @@ const update = (data, path) =>{
           console.log(error);
       });
 }
+
 const get = () =>{
  return fetch('http://localhost:3001/notes')
 }

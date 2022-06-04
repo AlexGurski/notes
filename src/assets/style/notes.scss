@@ -10,7 +10,7 @@
     transition: all 0.5s;
     overflow-y: auto;
         &_add{
-            
+            padding-right: 10px;
             flex-direction: column;
             textarea{
                 width: 100%;
@@ -69,11 +69,16 @@
                 align-items: center;        
                 span{
                     font-size: 30px;
-                    color: rgb(223, 221, 221);
+                    color: rgb(94, 94, 94);
                     margin-left: 0.5em;
                     height: 50%;
                     display: flex;        
                     align-items: center;
+                    cursor: pointer;
+                    transition: all 0.6s;
+                    &:hover{
+                        color: rgb(0, 0, 0); 
+                    }
                 }
                 input{
                     width: 500px;

@@ -9,10 +9,11 @@ const randomID = (title) =>{
   return rs
 }
 
-export const AddNewPost = ({create}) =>{  
+export const AddNewPost = ({create,clickVisibleAddForm, visible}) =>{  
   const [newNotes, setNewNotes] = useState({}) 
   const [tags, setTags] = useState([])
-  const [display,setDisplay] = useState({display:"none"})
+
+
   useEffect(()=>{
     setNewNotes({...newNotes, tags:tags})
   },[tags])
@@ -22,7 +23,7 @@ export const AddNewPost = ({create}) =>{
   }
 
   return (
-    <form className="notes_list_add" style={display}>
+    <form className="notes_list_add" style={visible?{display:'flex'}:{display:'none'}}>
         <label>
           Название:
           <input type="text" name="name" value={newNotes.title?newNotes.title:""}onChange={e=>setNewNotes({...newNotes, title:e.target.value})}/>
@@ -35,8 +36,8 @@ export const AddNewPost = ({create}) =>{
             {tags.map(e=><p>{e}</p>)}
           </span>
         <span>          
-          <input type='button' value='Сохранить' onClick={()=>{create({...newNotes, id:randomID(newNotes.title), text:newNotes.text.replace('#', '')});setNewNotes({}); }}/>
-          <input type='button' value='Отмена' onClick={()=>setDisplay({display:'none'})}/>
+          <input type='button' value='Сохранить' onClick={()=>{create({...newNotes, id:randomID(newNotes.title), text:newNotes.text.replace(/#/g, '')});setNewNotes({}); setTags([])}}/>
+          <input type='button' value='Скрыть' onClick={()=>clickVisibleAddForm()}/>
         </span>
     </form>
   );
