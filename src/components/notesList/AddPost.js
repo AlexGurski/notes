@@ -36,8 +36,8 @@ export const AddNewPost = ({create,clickVisibleAddForm, visible}) =>{
             {tags.map(e=><p>{e}</p>)}
           </span>
         <span>          
-          <input type='button' value='Сохранить' onClick={()=>{create({...newNotes, id:randomID(newNotes.title), text:newNotes.text.replace(/#/g, '')});setNewNotes({}); setTags([])}}/>
-          <input type='button' value='Скрыть' onClick={()=>clickVisibleAddForm()}/>
+          <input  value='Сохранить' onClick={()=>{create({...newNotes, id:randomID(newNotes.title), text:newNotes.text.replace(/#/g, '')});setNewNotes({}); setTags([])}}/>
+          <input  value='Скрыть' onClick={()=>clickVisibleAddForm()}/>
         </span>
     </form>
   );

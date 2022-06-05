@@ -14,6 +14,7 @@ export const TextNotes = ({tags, text, addText}) =>{
   const divText = useRef("")
   const [textToEdit, setTextToEdit] = useState("")
   const [display, setDisplay] = useState(false)
+  
   useEffect(()=>{
     setDisplay(false)
     setTextToEdit(text.text)

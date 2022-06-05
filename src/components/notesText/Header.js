@@ -8,12 +8,12 @@ export const Header = ({text,addText}) =>{
   useEffect(()=>{
     if(editHeader){
       divTitle.current.classList.add("edits-style")
-     
     }
       else{
         divTitle.current.classList.remove("edits-style")        
       }
   },[editHeader])
+  
     return (
     <span className='notes_text_header'>
       <h2  contentEditable={editHeader} suppressContentEditableWarning={true} ref={divTitle}> {text.title}</h2>  
