@@ -24,8 +24,8 @@ return (
     <div className="notes_text">
       <Header text={text} addText={el=>setText(el)} />   
       <TextNotes tags={tags} text={text} addText={el=>setText(el)} />
-      <Tags text={text} addText={el=>setText(el)} addTags={el=>setTags(el)} />
-      <input type="button" value="Удалить заметку" onClick={()=>removePost(fullNotes.id)}/>
+      <Tags text={text} addText={el=>setText(el)} searchTags={el=>setTags(el)} />
+      <span className='notes_text_delete' onClick={()=>removePost(fullNotes.id)}> Удалить заметку</span>
     </div>
     :null
     }

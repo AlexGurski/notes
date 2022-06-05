@@ -5,6 +5,7 @@
     height: 100vh;
     &_list{    
     width: 40%;  
+    min-width: 350px;    
     height: 100vh;
     border-right: 1px solid rgb(224, 224, 224);
     transition: all 0.5s;
@@ -27,7 +28,8 @@
             }
         }
         &_items{
-        list-style-type: none;        
+        list-style-type: none;    
+  
             &_item{
                 padding: 10px;
                 border-bottom: 1px solid rgb(224, 224, 224);
@@ -58,6 +60,7 @@
         }
         header{
             width: 100%;
+
             height: 70px;
             border-bottom: 1px solid rgb(224, 224, 224);
             background-color: rgb(247, 241, 241);
@@ -91,19 +94,25 @@
                     font-size: 14px;
                     display: flex;
                     align-items: center;
+                    padding-left: 1em;
                 }
             }
         }
     }
     &_text{
-    padding-top: 30px;
+    padding: 2em 1em;
     width: 100%;
+    transition: all 1s;
         &_header{
             display: flex;
             align-items: center;
             transition: all 1s;
-            padding-bottom: 1em ;
-            > svg{
+            padding-bottom: 1em ;           
+            h2{
+                margin-right: 1em;
+                padding: 5px 7px;
+            }
+            > svg{                
                 font-size: 25px;
                 cursor: pointer;
                 color:grey;
@@ -143,6 +152,19 @@
                 
             }
         }
+        &_delete{
+            margin-top: 5px;
+            background-color: rgb(212, 12, 12);
+            padding: 7px 10px;
+            border-radius: 5px;
+            font-weight: 900;
+            cursor: pointer;
+            transition: all 0.4s;
+            &:hover{
+                color:white;
+                background-color: red;
+            }
+        }
     }
 }
 .disanimate{
@@ -160,4 +182,13 @@
       width: 100%;
       height:300px;
       font-size: 18px;
+  }
+
+  .edits-style{
+    box-shadow: -10px 10px 0 -7px #eee,
+                10px -10px 0 -7px #eee,
+                10px 10px 0 -10px #592385,
+                0 0 0 1px #592385;
+      border: none;
+      outline: none;      
   }
