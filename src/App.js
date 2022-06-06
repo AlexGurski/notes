@@ -15,6 +15,7 @@ function App() {
       return response.json();
     })
     .then((data) => {
+
       setNotes(data.reverse());
     });
   },[updateServer])

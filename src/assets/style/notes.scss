@@ -1,4 +1,4 @@
-$adaptiveWidth: 850px;
+$adaptiveWidth: 800px;
 %center {
     display: flex;
     align-items: center;
@@ -9,13 +9,23 @@ $adaptiveWidth: 850px;
     max-width: 95%;
     display: flex;
     height: 100vh;
-        &_list{    
+    @media screen and (max-width:$adaptiveWidth){
+        display: block;
+        height: auto;
+        max-width: 100%;
+        
+    }
+         &_list{    
         width: 40%;  
         min-width: 350px;    
         height: 100vh;
         border-right: 1px solid rgb(224, 224, 224);
         transition: all 0.5s;
         overflow-y: auto;
+        @media screen and (max-width:$adaptiveWidth){
+            width: 100%;
+            padding: 0 2%;
+        }
             &_add{
                 padding: 10px 10px 10px 0;
                 flex-direction: column;
@@ -214,7 +224,6 @@ $adaptiveWidth: 850px;
                             }
                         }                                                                   
                         &_button{
-                            font-size: 1vw; 
                             cursor: pointer;
                         }                     
                     }

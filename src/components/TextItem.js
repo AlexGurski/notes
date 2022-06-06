@@ -29,7 +29,7 @@ return (
       <Header text={text} addText={el=>setText(el)} />   
       <TextNotes tags={tags} text={text} addText={el=>setText(el)} />
       <Tags text={text} addText={el=>setText(el)} searchTags={el=>setTags(el)} />
-      <span className='notes_text_delete' onClick={()=>{removes(fullNotes.id);updateServer()}}> Удалить заметку</span>
+      <span className='notes_text_delete' onClick={()=>{removes(fullNotes.id);updateServer(); setText(false)}}> Удалить заметку</span>
     </div>
     :null
     }
