@@ -26,7 +26,7 @@ export const AddNewPost = ({create,clickVisibleAddForm, visible}) =>{
     <form className="notes_list_add" style={visible?{display:'flex'}:{display:'none'}}>
         <label>
           Название:
-          <input type="text" name="name" value={newNotes.title?newNotes.title:""}onChange={e=>setNewNotes({...newNotes, title:e.target.value})}/>
+          <input type="text"  className="notes_list_add_title" name="name" value={newNotes.title?newNotes.title:""}onChange={e=>setNewNotes({...newNotes, title:e.target.value})}/>
         </label>  
         <label>
           Текст заметки:
@@ -35,9 +35,9 @@ export const AddNewPost = ({create,clickVisibleAddForm, visible}) =>{
         <span>
             {tags.map(e=><p>{e}</p>)}
           </span>
-        <span>          
-          <input  value='Сохранить' onClick={()=>{create({...newNotes, id:randomID(newNotes.title), text:newNotes.text.replace(/#/g, '')});setNewNotes({}); setTags([])}}/>
-          <input  value='Скрыть' onClick={()=>clickVisibleAddForm()}/>
+        <span className="notes_list_add_button">   
+            <input  type="button"  value='Сохранить' onClick={()=>{create({...newNotes, id:randomID(newNotes.title), text:newNotes.text.replace(/#/g, '')});setNewNotes({}); setTags([])}}/>
+            <input  type="button"  value='Скрыть' onClick={()=>clickVisibleAddForm()}/>
         </span>
     </form>
   );

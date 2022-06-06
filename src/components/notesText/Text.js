@@ -34,7 +34,7 @@ export const TextNotes = ({tags, text, addText}) =>{
 
   return (
     <>
-      <div  className='notes_text_div' style={{display:!display?"block":"none"}} ref={divText} >
+      <div  className='notes_text_output' style={{display:!display?"block":"none"}} ref={divText} >
                 {
                 text?textToEdit.split("\n").map(e=><p>{onSearch(e, tags)}</p>):null  
                 }
@@ -43,20 +43,20 @@ export const TextNotes = ({tags, text, addText}) =>{
       value={textAreaText}  name="textarea" 
       onChange={(e)=>setTextAreaText(e.target.value)}>
       </TextareaAutosize>
-      
-      <AiOutlineEdit style={{fontSize:"35px",display:display?"none":"block"}} onClick={()=>setDisplay(!display)}
-      
-      />  
-      <span style={{display:'flex'}}>
-          <AiOutlineCheckSquare style={{fontSize:"35px",display:display?"block":"none"}} 
-            onClick={()=>{
-              setDisplay(!display); 
-              setTextToEdit(textAreaText.replace(/#/g, ''));
-              addText({...text, text:textAreaText.replace(/#/g, '')});
-            }}/>
-          <AiOutlineCloseSquare style={{fontSize:"35px",display:display?"block":"none"}} 
-            onClick={()=>{setDisplay(!display)}}/>
-      </span>
+      <div className='notes_text_edit'>
+        <AiOutlineEdit style={{display:display?"none":"block"}} onClick={()=>setDisplay(!display)}/>  
+        <span >
+            <AiOutlineCheckSquare style={{display:display?"block":"none"}} 
+              onClick={()=>{
+                setDisplay(!display); 
+                setTextToEdit(textAreaText.replace(/#/g, ''));
+                addText({...text, text:textAreaText.replace(/#/g, '')});
+              }}/>
+            <AiOutlineCloseSquare style={{display:display?"block":"none"}} 
+              onClick={()=>{setDisplay(!display)}}/>
+        </span>
+      </div>
+     
     </>
   )
 }
