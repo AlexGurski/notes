@@ -1,6 +1,7 @@
 import { useRef } from 'react'
 import {FaSlackHash} from 'react-icons/fa'
 import {FcCancel} from 'react-icons/fc'
+import { randomID } from '../../modules/randomID';
 import Popup from 'reactjs-popup';
 import 'reactjs-popup/dist/index.css';
 
@@ -12,25 +13,12 @@ export const Tags = ({text, addText, searchTags}) =>{
         <FaSlackHash className='notes_text_tags_hash'  onClick={()=>searchTags(null)}/>
           <ul className="notes_text_tags_item">       
           {
-            text? Object.values(text.tags).map(el=><>
-            <li className='notes_text_tags_item_remove'>
+            text? Object.values(text.tags).map(el=>< >
+            <li  className='notes_text_tags_item_remove' >
               <div onClick={()=>searchTags(el)}>{el}</div>
-              <Popup
-                  trigger={
-                  <button className="button">
-                    <FcCancel className='notes_text_tags_item_remove_button' />
-                  </button>}position="bottom left" 
-                  nested >
-                  <div>
-                    Удалить тег "{el}"
-                    <br></br>
-                    <button className="button" onClick={()=>{
+              <FcCancel className='notes_text_tags_item_remove_button' onClick={()=>{
                             text.tags.splice(text.tags.indexOf(el),1); addText({...text, tags:text.tags})}
-                            }>
-                      Удалить
-                    </button>
-                  </div>
-              </Popup>              
+                            }/>            
             </li>
             </>):null
           }

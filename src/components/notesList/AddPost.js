@@ -1,15 +1,8 @@
 import { useEffect, useState } from "react";
+import { randomID } from "../../modules/randomID";
+import { creates } from "../../modules/query";
 
-const randomID = (title) =>{
-  const abc = "1234567890-_abcdefghijklmnopqrstuvwxyz";
-  let rs = title.substring(0,5);
-  while (rs.length < 10) {
-      rs += abc[Math.floor(Math.random() * abc.length)];
-  }
-  return rs
-}
-
-export const AddNewPost = ({create,clickVisibleAddForm, visible}) =>{  
+export const AddNewPost = ({clickVisibleAddForm, visible, updateServer}) =>{  
   const [newNotes, setNewNotes] = useState({}) 
   const [tags, setTags] = useState([])
 
@@ -33,10 +26,10 @@ export const AddNewPost = ({create,clickVisibleAddForm, visible}) =>{
           <textarea name='text' value={newNotes.text?newNotes.text:""} onChange={e=>{setNewNotes({...newNotes, text:e.target.value}); setTags(spliterTags(e.target.value))}}/>
         </label>
         <span>
-            {tags.map(e=><p>{e}</p>)}
+            {tags.map(e=><p key={randomID()}>{e}</p>)}
           </span>
         <span className="notes_list_add_button">   
-            <input  type="button"  value='Сохранить' onClick={()=>{create({...newNotes, id:randomID(newNotes.title), text:newNotes.text.replace(/#/g, '')});setNewNotes({}); setTags([])}}/>
+            <input  type="button"  value='Сохранить' onClick={()=>{creates({...newNotes, id:randomID(), text:newNotes.text.replace(/#/g, '')}); updateServer(); setNewNotes({}); setTags([])}}/>
             <input  type="button"  value='Скрыть' onClick={()=>clickVisibleAddForm()}/>
         </span>
     </form>

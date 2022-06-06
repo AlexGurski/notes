@@ -2,48 +2,12 @@ import { useEffect, useState } from "react";
 import './assets/style/notes.css'
 import {NotesListItems} from './components/ListItems'
 import {NotesTextItem} from './components/TextItem'
-import axios from "axios";
+import { get} from "./modules/query";
 
 function App() {
   const [notes,setNotes] = useState(false)
   const [fullNotes, setFullNotes] = useState(false)
-  const [updateServer, setUpdateServer]=useState(true)
-  
-  const creates = (data) =>{
-    axios.post('http://localhost:3001/notes/', data)
-    .then(function (response) {
-      setUpdateServer(!updateServer)
-      console.log(response);
-    })
-    .catch(function (error) {
-      console.log(error);
-    });
-  }
-
-  const removes = (path) =>{
-    axios.delete('http://localhost:3001/notes/'+path, {})
-    .then( (response) => {
-      setUpdateServer(!updateServer)
-      setFullNotes(false)
-    })
-    .catch(function (error) {
-      console.log(error);
-    });
-  }
-
-const update = (data, path) =>{
-        axios.put('http://localhost:3001/notes/'+path, data )
-        .then(resp => {
-          setUpdateServer(!updateServer)
-          //console.log(resp.data);
-      }).catch(error => {
-          console.log(error);
-      });
-}
-
-const get = () =>{
- return fetch('http://localhost:3001/notes')
-}
+  const [updateServer,setUpdateServer] = useState(false)
 
   useEffect(()=>{
     get()
@@ -67,12 +31,10 @@ const get = () =>{
   }
 
   return (
-    <>    
     <div className="notes">
-        <NotesListItems notes={notes} onClickOnText={notesTo=>setFullNotes(notesTo)} create={(data)=>creates(data)} filterTags={e=>filterTags(e)}/>
-        <NotesTextItem fullNotes={fullNotes} updates={(data, path)=>update(data,path)} removePost={e=>removes(e)}/>
+        <NotesListItems notes={notes} onClickOnText={notesTo=>setFullNotes(notesTo)} filterTags={e=>filterTags(e)} updateServer={()=>setUpdateServer(!updateServer)}/>
+        <NotesTextItem fullNotes={fullNotes} updateServer={()=>setUpdateServer(!updateServer)}/>
     </div>
-    </>
   );
 }
 

@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from 'react';
 import TextareaAutosize from 'react-textarea-autosize';
 import {AiOutlineEdit, AiOutlineCheckSquare, AiOutlineCloseSquare} from 'react-icons/ai'
-
+import { randomID } from '../../modules/randomID';
 const onSearch = (text, tag) =>{
   return text.split(" ").map((e) => (e===tag) || (e===tag+',') || (e===tag+'.') ?<b >{e} </b>:e+" ")
 }
@@ -36,7 +36,7 @@ export const TextNotes = ({tags, text, addText}) =>{
     <>
       <div  className='notes_text_output' style={{display:!display?"block":"none"}} ref={divText} >
                 {
-                text?textToEdit.split("\n").map(e=><p>{onSearch(e, tags)}</p>):null  
+                text?textToEdit.split("\n").map(e=><p key={randomID()}>{onSearch(e, tags)}</p>):null  
                 }
       </div>
       <TextareaAutosize className='notes_text_area' style={{display:display?"block":"none"}} ref={refTextArea}

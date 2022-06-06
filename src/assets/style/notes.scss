@@ -1,5 +1,9 @@
 $adaptiveWidth: 850px;
-
+%center {
+    display: flex;
+    align-items: center;
+  }
+ 
 .notes{
     width: 1440px;
     max-width: 95%;
@@ -70,9 +74,8 @@ $adaptiveWidth: 850px;
                         text-overflow: ellipsis;
                     }
                     > ul{
-                        margin: 1em 0;
-                        display: flex;
-                        align-items: center;
+                        @extend %center;
+                        margin: 1em 0;                        
                         gap: 10px;
                         font-weight: 600;
                         flex-wrap: wrap;
@@ -87,18 +90,16 @@ $adaptiveWidth: 850px;
                 position: sticky;
                 top: 0;            
                 .header_content{
+                    @extend %center;
                     width: 35%;
                     height: 100%;
-                    padding: 5px;
-                    display: flex;        
-                    align-items: center;        
+                    padding: 5px;        
                     > span{
+                        @extend %center;
                         font-size: 30px;
                         color: rgb(94, 94, 94);
                         margin-left: 0.5em;
                         height: 50%;
-                        display: flex;        
-                        align-items: center;
                         cursor: pointer;
                         transition: all 0.6s;
                         &:hover{
@@ -106,6 +107,7 @@ $adaptiveWidth: 850px;
                         }
                     }
                     > input{
+                        @extend %center;
                         width: 500px;
                         height: 50%;
                         border-radius: 10px;
@@ -114,8 +116,6 @@ $adaptiveWidth: 850px;
                         font-style: normal;
                         font-weight: 400;
                         font-size: 14px;
-                        display: flex;
-                        align-items: center;
                         padding-left: 1em;
                         transition: 1.5s;
                         &:focus{
@@ -131,8 +131,7 @@ $adaptiveWidth: 850px;
         width: 100%;
         transition: all 1s;            
             &_header{
-                display: flex;
-                align-items: center;
+                @extend %center;
                 transition: all 1s;
                 padding-bottom: 1em ;           
                 h2{
@@ -177,21 +176,18 @@ $adaptiveWidth: 850px;
                 
             }
             &_addHashTag{
-                display: flex;
-                align-items: center;
+                @extend %center;
             }
             &_tags{
-                display: flex;
-                align-items: center;
+                @extend %center;
                 &_hash{
                     font-size: 35px;
                     min-width: 40px;
                 }
                 &_item{
-                    display: flex;
+                    @extend %center;
                     flex-wrap: wrap;
                     padding: 15px 0;
-                    align-items: center;
                     input{
                         border: none;
                         outline: none;  
@@ -203,12 +199,11 @@ $adaptiveWidth: 850px;
                         margin-left: 1em;
                     }
                     &_remove{
+                        @extend %center;
                         font-weight: 600;
                         padding: 5px 10px;
                         transition: all 0.3s;
-                        display: flex;
                         flex-direction: column;
-                        align-items: center;
                         gap: 5px;
                         width: 30%;                      
                         > div{
