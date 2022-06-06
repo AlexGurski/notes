@@ -7,34 +7,56 @@ const onSearch = (text, tag) =>{
 }
 
 const showTextonEdit = (text, tag) =>{
-  return text.split(" ").map(word=>tag.includes(word)?<b >{word} </b>:word+" ")
+  return text.split(" ").map(word=>tag.includes(word)?"#"+word+" ":word+" ").join("")
 }
 
 export const TextNotes = ({tags, text, addText}) =>{
   const divText = useRef("")
+  const refTextArea = useRef("")
   const [textToEdit, setTextToEdit] = useState("")
-  const [display, setDisplay] = useState(false)
-  
+  const [display, setDisplay] = useState(false)  
+  const [textAreaText, setTextAreaText] = useState("")
+
   useEffect(()=>{
     setDisplay(false)
     setTextToEdit(text.text)
+    setTextAreaText(showTextonEdit(text.text, text.tags))
   },[text])
-  
+
+  useEffect(()=>{
+    if(display){
+      refTextArea.current.classList.add("edits-style")
+    }
+      else{
+        refTextArea.current.classList.remove("edits-style")        
+      }
+  },[display])
+
   return (
     <>
-      <span  className='notes_text_div'
-            contentEditable={display} suppressContentEditableWarning={true} ref={divText} 
-            onKeyDown={(e)=>{
-              if (e.key==="Enter"){
-              }
-            }}>
+      <div  className='notes_text_div' style={{display:!display?"block":"none"}} ref={divText} >
                 {
-                text?display?showTextonEdit(textToEdit, text.tags):onSearch(textToEdit, tags):null   
+                text?textToEdit.split("\n").map(e=><p>{onSearch(e, tags)}</p>):null  
                 }
+      </div>
+      <TextareaAutosize className='notes_text_area' style={{display:display?"block":"none"}} ref={refTextArea}
+      value={textAreaText}  name="textarea" 
+      onChange={(e)=>setTextAreaText(e.target.value)}>
+      </TextareaAutosize>
+      
+      <AiOutlineEdit style={{fontSize:"35px",display:display?"none":"block"}} onClick={()=>setDisplay(!display)}
+      
+      />  
+      <span style={{display:'flex'}}>
+          <AiOutlineCheckSquare style={{fontSize:"35px",display:display?"block":"none"}} 
+            onClick={()=>{
+              setDisplay(!display); 
+              setTextToEdit(textAreaText.replace(/#/g, ''));
+              addText({...text, text:textAreaText.replace(/#/g, '')});
+            }}/>
+          <AiOutlineCloseSquare style={{fontSize:"35px",display:display?"block":"none"}} 
+            onClick={()=>{setDisplay(!display)}}/>
       </span>
-      <AiOutlineEdit style={{display:display?"none":"block"}} onClick={()=>setDisplay(!display)}/>  
-      <AiOutlineCheckSquare style={{display:display?"block":"none"}} onClick={()=>{setDisplay(!display); setTextToEdit(divText.current.textContent); addText({...text, text:divText.current.textContent});}}/>
-      <AiOutlineCloseSquare style={{display:display?"block":"none"}} onClick={()=>{setDisplay(!display); setTextToEdit(text.text)}}/>
     </>
   )
 }

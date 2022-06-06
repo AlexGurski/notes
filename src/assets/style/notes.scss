@@ -112,6 +112,10 @@
     padding: 2em 1em;
     width: 100%;
     transition: all 1s;
+        textarea{
+            width: 100%;      
+            font-size: 18px;
+        }
         &_header{
             display: flex;
             align-items: center;
@@ -163,10 +167,21 @@
                 font-weight: 600;
                 padding: 5px 10px;
                 transition: all 0.3s;
-                cursor: pointer;
-                &:hover{
-                    transform: scale(1.1);
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                gap: 5px;
+                div{
+                    cursor: pointer;
+                    transition: all 0.3s;
+                    
+                    &:hover{
+                        transform: scale(1.1);
+                        color:red
+                    }
                 }
+                
                 
             }
         }
@@ -185,22 +200,8 @@
         }
     }
 }
-.disanimate{
-    display: none;
-}
-.animate{
-    display: block;    
-    animation: ani 1s forwards;
-}
-@keyframes ani {
-    0% {left: 40px; width: 0;}
-    100% {left: 0; width: 100%;}
-  }
-  textarea{
-      width: 100%;
-      height:300px;
-      font-size: 18px;
-  }
+
+
 
   .edits-style{
     box-shadow: -10px 10px 0 -7px #eee,
@@ -209,40 +210,4 @@
                 0 0 0 1px #592385;
       border: none;
       outline: none;      
-  }
-
-
-
-  .modal {
-    font-size: 12px;
-  }
-  .modal > .header {
-    width: 100%;
-    border-bottom: 1px solid gray;
-    font-size: 18px;
-    text-align: center;
-    padding: 5px;
-  }
-  .modal > .content {
-    width: 100%;
-    padding: 10px 5px;
-  }
-  .modal > .actions {
-    width: 100%;
-    padding: 10px 5px;
-    margin: auto;
-    text-align: center;
-  }
-  .modal > .close {
-    cursor: pointer;
-    position: absolute;
-    display: block;
-    padding: 2px 5px;
-    line-height: 20px;
-    right: -10px;
-    top: -10px;
-    font-size: 24px;
-    background: #ffffff;
-    border-radius: 18px;
-    border: 1px solid #cfcece;
   }
