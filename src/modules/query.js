@@ -1,5 +1,5 @@
 import axios from "axios";
-const URL = 'http://localhost:3001/notes/'
+const URL = 'http://localhost:5000/notes/'
 export const get = () =>{
     return fetch(URL)
    }
