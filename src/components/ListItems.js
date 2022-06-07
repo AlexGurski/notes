@@ -11,7 +11,7 @@ export const NotesListItems = ({notes, onClickOnText, filterTags, updateServer})
   <div className="notes_list">
   <ul className="notes_list_items">
       <Header filterTags={e=>filterTags(e)} clickVisibleAddForm={()=>setVisibleAddForm(!visibleAddForm)}/>   
-      <AddNewPost clickVisibleAddForm={()=>setVisibleAddForm(!visibleAddForm)} visible={visibleAddForm} updateServer={()=>updateServer()}/>
+      <AddNewPost clickVisibleAddForm={()=>setVisibleAddForm(!visibleAddForm)} visible={visibleAddForm} updateServer={(type)=>updateServer(type)}/>
       <BodyOfListNotes notes={notes} onClickOnText={e=>{onClickOnText(e)}}/>
   </ul>
 </div>)

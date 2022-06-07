@@ -2,17 +2,12 @@ import axios from "axios";
 const URL = 'https://testnotestask.herokuapp.com/notes/'
 //const URL = 'http://localhost:3001/notes/'
 export const get = () =>{
-    return fetch(URL)
+    return  fetch(URL)
    }
 
-export const creates = (data) =>{
-    axios.post(URL, data)
-    .then(function (response) 
-  {  
-    })
-    .catch(function (error) {
-      console.log(error);
-    });
+export const creates = async (data) =>{
+  let response = await axios.post(URL, data)
+    return  response.data
   }
 
   export const removes = (path) =>{
