@@ -1,6 +1,6 @@
 import axios from "axios";
-//const URL = 'https://testnotestask.herokuapp.com/notes/'
-const URL = 'http://localhost:3001/notes/'
+const URL = 'https://testnotestask.herokuapp.com/notes/'
+//const URL = 'http://localhost:3001/notes/'
 export const get = () =>{
     return fetch(URL)
    }
