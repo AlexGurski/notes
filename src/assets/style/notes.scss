@@ -224,6 +224,7 @@ $adaptiveWidth: 800px;
             }
             &_tags{
                 @extend %center;
+                height: auto;
                 &_hash{
                     font-size: 35px;
                     min-width: 40px;
@@ -232,6 +233,7 @@ $adaptiveWidth: 800px;
                     @extend %center;
                     flex-wrap: wrap;
                     padding: 15px 0;
+                    margin-bottom: 20px;
                     input{
                         border: none;
                         outline: none;  
@@ -263,7 +265,9 @@ $adaptiveWidth: 800px;
                     }
                 }
             } 
-            &_delete{            
+            &_delete{    
+                
+                width: auto;        
                 border: 1px dashed black;
                 padding: 7px 10px;
                 border-radius: 5px;
@@ -274,6 +278,11 @@ $adaptiveWidth: 800px;
                     color:white;
                     background-color: red;
                 }
+                @media screen and (max-width:$adaptiveWidth){
+                    margin-top: 20px;
+                    width: auto; 
+                    text-align: center;                
+                } 
             }
         }
 }
