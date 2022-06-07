@@ -10,7 +10,6 @@ function App() {
   const [updateServ,setUpdateServ] = useState(["get"])
 
    async  function  update(arr){
-     console.log(arr)
      if (arr[0]==="add"){
       await creates(arr[1])
     }
@@ -32,7 +31,6 @@ useEffect(()=>{
         })
         .then((data) => {        
           setNotes(data.reverse());
-          console.log(data);
         })
     )
     
