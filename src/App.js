@@ -14,9 +14,9 @@ function App() {
     .then((response) => {
       return response.json();
     })
-    .then((data) => {
-      console.log(data.reverse());
+    .then((data) => {      
       setNotes(data.reverse());
+      console.log(data);
     });
   },[updateServ])
 
