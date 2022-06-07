@@ -7,7 +7,6 @@ import { removes, updates } from '../modules/query'
 export const NotesTextItem = ({fullNotes, updateServer})=>{
   const [text,setText] = useState(false);
   const [tags, setTags] = useState(null); 
-
 useEffect(()=>{
   if (text){
     updateServer()
