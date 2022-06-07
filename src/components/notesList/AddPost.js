@@ -1,11 +1,9 @@
 import { useEffect, useState } from "react";
 import { randomID } from "../../modules/randomID";
-import { creates } from "../../modules/query";
 
 export const AddNewPost = ({clickVisibleAddForm, visible, updateServer}) =>{  
   const [newNotes, setNewNotes] = useState({}) 
   const [tags, setTags] = useState([])
-
 
   useEffect(()=>{
     setNewNotes({...newNotes, tags:tags})
@@ -25,9 +23,9 @@ export const AddNewPost = ({clickVisibleAddForm, visible, updateServer}) =>{
           Текст заметки:
           <textarea name='text' value={newNotes.text?newNotes.text:""} onChange={e=>{setNewNotes({...newNotes, text:e.target.value}); setTags(spliterTags(e.target.value))}}/>
         </label>
-        <span>
+        <span className="notes_list_add_tags">
             {tags.map(e=><p key={randomID()}>{e}</p>)}
-          </span>
+        </span>
         <span className="notes_list_add_button">   
             <input  type="button"  value='Сохранить' onClick={()=>{ updateServer(["add",{...newNotes, id:randomID(), text:newNotes.text.replace(/#/g, '')}]); setNewNotes({}); setTags([])}}/>
             <input  type="button"  value='Скрыть' onClick={()=>clickVisibleAddForm()}/>

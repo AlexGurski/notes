@@ -9,7 +9,6 @@ export const Tags = ({text, addText, searchTags}) =>{
 
     return (
       <div className='notes_text_tags'> 
-        <FaSlackHash className='notes_text_tags_hash'  onClick={()=>searchTags(null)}/>
           <ul className="notes_text_tags_item">       
           {
             text? Object.values(text.tags).map(el=>

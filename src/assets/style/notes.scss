@@ -54,12 +54,14 @@ $adaptiveWidth: 800px;
                     border: none;
                     outline: none;
                 }
-                > span{
+                &_tags{
                     width: 100%;
                     display: flex;
+                    flex-wrap: wrap;
                     > *{
+                        font-weight: 600;
                         margin-top: 1em;
-                        width: 50%;
+                        padding: 0 1em;
                     }
                 }
             }
@@ -225,15 +227,12 @@ $adaptiveWidth: 800px;
             &_tags{
                 @extend %center;
                 height: auto;
-                &_hash{
-                    font-size: 35px;
-                    min-width: 40px;
-                }
                 &_item{
                     @extend %center;
                     flex-wrap: wrap;
                     padding: 15px 0;
                     margin-bottom: 20px;
+                    width: 100%;
                     input{
                         border: none;
                         outline: none;  
@@ -266,7 +265,6 @@ $adaptiveWidth: 800px;
                 }
             } 
             &_delete{    
-                
                 width: auto;        
                 border: 1px dashed black;
                 padding: 7px 10px;
