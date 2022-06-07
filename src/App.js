@@ -8,7 +8,6 @@ function App() {
   const [notes,setNotes] = useState(false)
   const [fullNotes, setFullNotes] = useState(false)
   const [updateServ,setUpdateServer] = useState(false)
-  const [adaptive, setAdaptive] = useState(false)
 
   useEffect(()=>{
     get()
@@ -16,10 +15,10 @@ function App() {
       return response.json();
     })
     .then((data) => {
+      console.log(data.reverse());
       setNotes(data.reverse());
     });
   },[updateServ])
-
 
   const filterTags = (tag)=>  {
     get()
@@ -34,11 +33,8 @@ function App() {
 
   return (
     <div className="notes">
-
-        <NotesListItems notes={notes} onClickOnText={notesTo=>setFullNotes(notesTo)} filterTags={e=>filterTags(e)} updateServer={()=>setUpdateServer(!updateServ)}/>
-
-
- 
+        <NotesListItems notes={notes}         
+        onClickOnText={notesTo=>setFullNotes(notesTo)} filterTags={e=>filterTags(e)} updateServer={()=>setUpdateServer(!updateServ)}/> 
         {fullNotes?<NotesTextItem fullNotes={fullNotes} setFullText={()=>{setFullNotes(false)}} updateServer={()=>setUpdateServer(!updateServ)}/>:null}
     </div>
   );
