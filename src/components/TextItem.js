@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from 'react'
-import { Tags } from './notesText/Tags'
+import { Tags } from './notesText/tags'
 import { Header } from './notesText/Header'
 import { TextNotes } from './notesText/Text'
 import { removes, updates } from '../modules/query'
