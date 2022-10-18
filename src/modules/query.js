@@ -1,36 +1,23 @@
 import axios from "axios";
 const URL = 'https://testnotestask.herokuapp.com/notes/'
+
 export const get = () =>{
-    return fetch(URL)
+    return  fetch(URL)
    }
 
-export const creates = (data) =>{
-    axios.post(URL, data)
-    .then(function (response) 
-  {  
-
-    })
-    .catch(function (error) {
-      console.log(error);
-    });
+export const creates = async (data) =>{
+  let response = await axios.post(URL, data)
+    return  response.data
   }
 
-  export const removes = (path) =>{
-    axios.delete(URL+path, {})
-    .then( (response) => {
-
-    })
-    .catch(function (error) {
-      console.log(error);
-    });
+  export const removes = async (path) =>{
+    let response = await axios.delete(URL+path, {})
+    return  response.data
   }
 
-  export const updates = (data, path) =>{
-    axios.put(URL+path, data )
-    .then(resp => {
-  }).catch(error => {
-      console.log(error);
-  });
+  export const updates = async (data, path) =>{
+    let response = await axios.put(URL+path, data )
+    return  response.data
 }
 
 
